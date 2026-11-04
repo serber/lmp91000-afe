@@ -92,7 +92,7 @@ The sensor pin layout is printed on the silkscreen. The WE and RE traces also ru
 
 | Designator | Qty | Value / part | Footprint | LCSC |
 | ---------- | --- | ------------ | --------- | ---- |
-| U1 | 1 | LMP91000SD/NOPB | WSON-14 | C84366 |
+| U1 | 1 | LMP91000SDX/NOPB | WSON-14 | — |
 | U2 | 1 | LM4040AIM3-2.5/NOPB | SOT-23 | C139302 |
 | U3 | 1 | ADS1115IDGSR | MSOP-10 | C37593 |
 | C1, C3, C4, C5, C6 | 5 | 100 nF | 0603 | C14663 |
