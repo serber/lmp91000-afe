@@ -13,13 +13,12 @@ Hardware project: a 2-layer PCB in EasyEDA Pro. There is no code, build, lint or
 | Project `LMP91000 AFE` | `880980bf696c4bf58844fc25b96d1f9f` |
 | PCB | `35d2b91d3449eaa3` |
 | Schematic page | `83b967512e647cc7` |
-| Panel `Panel 2x3` | `bb228a6889096abf` |
 
 ## Working on the board
 
 - After any PCB change: rebuild both GND pours, save, reopen the document, run DRC, then re-export all three files in `production/` (Gerber zip, BOM, CPL). Keep the `README.md` tables in sync.
 - Treat DRC as clean only when `eda.pcb_Drc.check(true, false, true)` returns an empty array on a freshly reopened document.
-- The panel cannot be read or exported through the API. Check it and export it by hand in the EasyEDA UI.
+- Panel documents cannot be read or exported through the API. If one is added, export it by hand in the EasyEDA UI.
 
 ## EasyEDA API behaviour (Pro 3.2.209)
 

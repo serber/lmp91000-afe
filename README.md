@@ -4,6 +4,10 @@ Analog front-end board for 3-electrode electrochemical gas sensors in the Winsen
 
 > **Status:** v1.0. The layout passes EasyEDA DRC, but the board has not yet been fabricated or tested on hardware.
 
+![3D render of the LMP91000 AFE board](docs/images/board-3d.png)
+
+*Render from the EasyEDA 3D model and the v1.0 Gerber files. The gas sensor and its sockets are not shown, and the solder mask colour is illustrative.*
+
 ## Features
 
 - Socket footprint for Winsen ME3 series sensors (Ø20 mm, 3 pins: WE, RE, CE)
@@ -73,6 +77,8 @@ The sensor pin layout is printed on the silkscreen. The WE and RE traces also ru
 
 ## PCB
 
+![Top view of the board](docs/images/board-top.png)
+
 | Parameter | Value |
 | --------- | ----- |
 | Size | 44.7 × 27.0 mm |
@@ -107,6 +113,7 @@ Designator R2 is not used. Sensor sockets are not listed in the BOM: choose them
 | `production/LMP91000_AFE_v1.0_gerber.zip` | Gerber and drill files for a single board |
 | `production/LMP91000_AFE_v1.0_BOM.csv` | Bill of materials |
 | `production/LMP91000_AFE_v1.0_CPL.csv` | Pick-and-place file |
+| `docs/images/` | Board renders used in this README |
 
 The fabrication files were generated with EasyEDA Pro. The EasyEDA source project is not stored in this repository.
 
