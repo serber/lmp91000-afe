@@ -88,6 +88,30 @@ The sensor pin layout is printed on the silkscreen. The WE and RE traces also ru
 | Smallest via | 0.3 mm drill, 0.6 mm pad |
 | Sensor pads | Ø3.7 mm, Ø2.6 mm hole, on a 13.5 mm pin circle |
 
+### Ordering
+
+Send `production/LMP91000_AFE_v1.0_gerber.zip` with this specification:
+
+```text
+5PCS, 2 LAYERS, FR4, 1.6MM, 1OZ, 44.7x27MM, Purple Soldermask, White Legend, ENIG, order number will be added.
+```
+
+ENIG is preferred over HASL because U1 (WSON-14 with exposed pad) and U3 (MSOP-10) both have a 0.5 mm pitch: the uneven HASL surface raises the risk of bridges and tilt, especially under U1. If cost matters more, use `Lead-free HASL`. Quantity, solder mask colour and legend colour are free choices.
+
+Details the manufacturer may ask about:
+
+| Item | Value |
+| ---- | ----- |
+| Smallest track | 0.2 mm |
+| Plated holes | 0.3, 1.1, 1.2 and 2.6 mm |
+| Non-plated holes | 4 × 2.2 mm |
+| Panelization | None, delivered as single boards |
+| Solder mask between U1 pads | About 0.017 mm, too thin to make. Removing it is acceptable. |
+| Solder mask between U3 pads | 0.12 mm. Removing it is acceptable. |
+| Vias | Tented, except the four in the U1 exposed pad, which are open on top and tented on the bottom. This is intentional. |
+
+Order a stencil as well if you assemble the boards yourself: U1 cannot be soldered with an iron because of its exposed pad. The paste layer is in the Gerber archive.
+
 ## Bill of materials
 
 | Designator | Qty | Value / part | Footprint | LCSC |
