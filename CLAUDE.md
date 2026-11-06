@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repository is
 
-Hardware project: a 2-layer PCB in EasyEDA Pro. There is no code, build, lint or test. `README.md` describes the board (pinout, I²C addresses, firmware notes, BOM). `production/` holds exported fabrication files only.
+Hardware project: a 2-layer PCB in EasyEDA Pro. There is no code, build, lint or test. `README.md` describes the board (pinout, I²C addresses, firmware notes). `release/v1.0/` holds exported fabrication files only.
 
 **The source of truth is the EasyEDA cloud project, not this repo.** Schematic and PCB can only be read or changed through a running EasyEDA Pro client, using the `easyeda-api` skill and its bridge (ports 49620-49629).
 
@@ -16,7 +16,7 @@ Hardware project: a 2-layer PCB in EasyEDA Pro. There is no code, build, lint or
 
 ## Working on the board
 
-- After any PCB change: rebuild both GND pours, save, reopen the document, run DRC, then re-export all three files in `production/` (Gerber zip, BOM, CPL). Keep the `README.md` tables in sync.
+- After any PCB change: rebuild both GND pours, save, reopen the document, run DRC, then re-export all three files in `release/v1.0/` (Gerber zip, BOM, CPL). Keep `README.md` and `release/v1.0/BOM.md` in sync.
 - Treat DRC as clean only when `eda.pcb_Drc.check(true, false, true)` returns an empty array on a freshly reopened document.
 - Panel documents cannot be read or exported through the API. If one is added, export it by hand in the EasyEDA UI.
 

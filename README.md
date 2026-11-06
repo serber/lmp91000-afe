@@ -4,7 +4,7 @@ Analog front-end board for 3-electrode electrochemical gas sensors in the Winsen
 
 > **Status:** v1.0. The layout passes EasyEDA DRC, but the board has not yet been fabricated or tested on hardware.
 
-![3D render of the LMP91000 AFE board](docs/images/board-3d.png)
+![3D render of the LMP91000 AFE board](docs/images/board-top.png)
 
 *Render from the EasyEDA 3D model and the v1.0 Gerber files. The gas sensor and its sockets are not shown, and the solder mask colour is illustrative.*
 
@@ -77,7 +77,7 @@ The sensor pin layout is printed on the silkscreen. The WE and RE traces also ru
 
 ## PCB
 
-![Top view of the board](docs/images/board-top.png)
+![Top view of the board](docs/images/board-plan.png)
 
 | Parameter | Value |
 | --------- | ----- |
@@ -88,9 +88,9 @@ The sensor pin layout is printed on the silkscreen. The WE and RE traces also ru
 | Smallest via | 0.3 mm drill, 0.6 mm pad |
 | Sensor pads | Ø3.7 mm, Ø2.6 mm hole, on a 13.5 mm pin circle |
 
-### Ordering
+## Ordering
 
-Send `production/LMP91000_AFE_v1.0_gerber.zip` with this specification:
+Files are in [`release/v1.0`](release/v1.0). Upload `gerber-v1.0.zip` and send this instruction:
 
 ```text
 5PCS, 2 LAYERS, FR4, 1.6MM, 1OZ, 44.7x27MM, Purple Soldermask, White Legend, ENIG, order number will be added.
@@ -114,29 +114,13 @@ Order a stencil as well if you assemble the boards yourself: U1 cannot be solder
 
 ## Bill of materials
 
-| Designator | Qty | Value / part | Footprint | LCSC |
-| ---------- | --- | ------------ | --------- | ---- |
-| U1 | 1 | LMP91000SDX/NOPB | WSON-14 | — |
-| U2 | 1 | LM4040AIM3-2.5/NOPB | SOT-23 | C139302 |
-| U3 | 1 | ADS1115IDGSR | MSOP-10 | C37593 |
-| C1, C3, C4, C5, C6 | 5 | 100 nF | 0603 | C14663 |
-| C2 | 1 | 10 µF | 0805 | C15850 |
-| R1 | 1 | 1.5 kΩ | 0603 | C22843 |
-| R3, R4, R5, R7 | 4 | 10 kΩ | 0603 | C25804 |
-| R6 | 1 | 1 kΩ | 0603 | C21190 |
-| J1 | 1 | PZ254V-11-07P | 1×7 2.54 mm | C492406 |
-| JP1 | 1 | PZ254V-11-02P | 1×2 2.54 mm | C492401 |
-| SENSOR | 1 | Winsen ME3 series | Custom | — |
+See [`release/v1.0/BOM.md`](release/v1.0/BOM.md).
 
-Designator R2 is not used. Sensor sockets are not listed in the BOM: choose them to fit the Ø2.6 mm holes.
+## Repository
 
-## Repository layout
-
-| Path | Contents |
-| ---- | -------- |
-| `production/LMP91000_AFE_v1.0_gerber.zip` | Gerber and drill files for a single board |
-| `production/LMP91000_AFE_v1.0_BOM.csv` | Bill of materials |
-| `production/LMP91000_AFE_v1.0_CPL.csv` | Pick-and-place file |
+| Path | Content |
+|---|---|
+| [`release/v1.0`](release/v1.0) | Gerbers, BOM, and placement for ordering |
 | `docs/images/` | Board renders used in this README |
 
 The fabrication files were generated with EasyEDA Pro. The EasyEDA source project is not stored in this repository.
