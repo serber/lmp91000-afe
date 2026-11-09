@@ -1,7 +1,5 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
 ## What this repository is
 
 Hardware project: a 2-layer PCB in EasyEDA Pro. There is no code, build, lint or test. `README.md` describes the board (pinout, I²C addresses, firmware notes). `release/v1.0/` holds exported fabrication files only.
