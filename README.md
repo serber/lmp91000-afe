@@ -1,22 +1,40 @@
 # lmp91000-afe
 
-Analog front-end board for 3-electrode electrochemical gas sensors in the Winsen ME3 form factor. It combines a TI LMP91000 potentiostat, a 2.5 V precision reference and a 16-bit ADS1115 ADC, so a host can configure the sensor channel and read gas concentration over I²C.
+Analog front-end for 3-electrode electrochemical gas sensors in the Winsen ME3 form factor: TI LMP91000 potentiostat, 2.5 V reference and 16-bit ADS1115 ADC. A host configures the sensor channel and reads the gas signal over I²C.
 
-> **Status:** v1.0. The layout passes EasyEDA DRC, but the board has not yet been fabricated or tested on hardware.
+![Board, top side](docs/images/board-top.png)
 
-![3D render of the LMP91000 AFE board](docs/images/board-3d.png)
+*Render, not a photo. The sensor and its sockets are not shown.*
 
-*Render from the EasyEDA 3D preview. The gas sensor and its sockets are not shown, and the solder mask colour is illustrative.*
+## Status
+
+| Part | State |
+|---|---|
+| PCB | v1.0, EasyEDA Pro, DRC 0 errors. Not manufactured |
+| Validation | Nothing built or measured |
 
 ## Features
 
-- Socket footprint for Winsen ME3 series sensors (Ø20 mm, 3 pins: WE, RE, CE)
+- Socket footprint for Winsen ME3 sensors (Ø20 mm, 3 pins: WE, RE, CE)
 - LMP91000 with programmable transimpedance gain, bias and load
-- External 2.5 V reference (LM4040, 0.1 %) for the AFE and the ADC
+- LM4040 2.5 V reference, 0.1 %, shared by the AFE and the ADC
 - 16-bit differential measurement of the AFE output with the ADS1115
-- Single I²C bus for both chips, with on-board 10 kΩ pull-ups
+- One I²C bus for both chips, 10 kΩ pull-ups on board
 - Jumper to short WE and RE while the sensor is stored
 - 7-pin 2.54 mm header, 4 M2 mounting holes
+
+## Specifications
+
+| Parameter | Value |
+|---|---|
+| Board | 44.7 × 27.0 mm, 2 layers, 1.6 mm, GND pour on both sides |
+| Supply | 3.3 V |
+| Mounting holes | 4 × Ø2.2 mm non-plated (M2), 40.7 × 23.0 mm, 2.0 mm from the edges |
+| Sensor pads | Ø3.7 mm, Ø2.6 mm hole, 13.5 mm pin circle |
+
+![Board, 3D view](docs/images/board-overview.png)
+
+![Board, bottom side](docs/images/board-bottom.png)
 
 ## Architecture
 
@@ -36,7 +54,7 @@ The ADC measures `AOUT - VREF` differentially, so the reading is referenced to t
 ## Connector J1
 
 | Pin | Signal | Description |
-| --- | ------ | ----------- |
+|---|---|---|
 | 1 | `3V3` | 3.3 V supply input |
 | 2 | `GND` | Ground |
 | 3 | `SCL` | I²C clock, 10 kΩ pull-up on board |
@@ -52,7 +70,7 @@ The ADS1115 `ALERT/RDY` pin is pulled up but not routed to J1, so conversion sta
 ## I²C devices
 
 | Device | Address | Notes |
-| ------ | ------- | ----- |
+|---|---|---|
 | LMP91000 | `0x48` | Fixed address. Responds only while `MENB` is low, which is the default state. |
 | ADS1115 | `0x49` | `ADDR` tied to VDD |
 
@@ -75,44 +93,25 @@ From the Winsen ME3 manual:
 
 The sensor pin layout is printed on the silkscreen. The WE and RE traces also run to JP1, so the board should be cleaned of flux after soldering to keep leakage on these nodes low.
 
-## PCB
-
-![Top view of the board](docs/images/board-top.png)
-
-![Bottom view of the board](docs/images/board-bottom.png)
-
-| Parameter | Value |
-| --------- | ----- |
-| Size | 44.7 × 27.0 mm |
-| Layers | 2, with GND pour on both sides |
-| Mounting holes | 4 × Ø2.2 mm non-plated (M2), 2.0 mm from the edges |
-| Hole spacing | 40.7 × 23.0 mm |
-| Smallest via | 0.3 mm drill, 0.6 mm pad |
-| Sensor pads | Ø3.7 mm, Ø2.6 mm hole, on a 13.5 mm pin circle |
-
 ## Ordering
 
-Files are in [`release/v1.0`](release/v1.0). Upload `gerber-v1.0.zip` and send this instruction:
+Upload [`release/v1.0/gerber-v1.0.zip`](release/v1.0) and send:
 
 ```text
 5PCS, 2 LAYERS, FR4, 1.6MM, 1OZ, 44.7x27MM, Purple Soldermask, White Legend, ENIG, order number will be added.
 ```
 
-ENIG is preferred over HASL because U1 (WSON-14 with exposed pad) and U3 (MSOP-10) both have a 0.5 mm pitch: the uneven HASL surface raises the risk of bridges and tilt, especially under U1. If cost matters more, use `Lead-free HASL`. Quantity, solder mask colour and legend colour are free choices.
-
-Details the manufacturer may ask about:
-
 | Item | Value |
-| ---- | ----- |
+|---|---|
+| Surface finish | ENIG: U1 (WSON-14, exposed pad) and U3 (MSOP-10) have 0.5 mm pitch. Lead-free HASL works with more risk of bridges |
 | Smallest track | 0.2 mm |
 | Plated holes | 0.3, 1.1, 1.2 and 2.6 mm |
 | Non-plated holes | 4 × 2.2 mm |
 | Panelization | None, delivered as single boards |
 | Solder mask between U1 pads | About 0.017 mm, too thin to make. Removing it is acceptable. |
 | Solder mask between U3 pads | 0.12 mm. Removing it is acceptable. |
-| Vias | Tented, except the four in the U1 exposed pad, which are open on top and tented on the bottom. This is intentional. |
-
-Order a stencil as well if you assemble the boards yourself: U1 cannot be soldered with an iron because of its exposed pad. The paste layer is in the Gerber archive.
+| Vias | Tented, except the four in the U1 exposed pad: open on top, tented on the bottom, on purpose |
+| Stencil | Needed for hand assembly: U1 cannot be soldered with an iron. The paste layer is in the Gerber archive |
 
 ## Bill of materials
 
@@ -122,12 +121,12 @@ See [`release/v1.0/BOM.md`](release/v1.0/BOM.md).
 
 | Path | Content |
 |---|---|
-| [`release/v1.0`](release/v1.0) | Gerbers, BOM, and placement for ordering |
-| `docs/images/` | Board renders used in this README |
+| [`release/v1.0`](release/v1.0) | Ordering package: Gerber, BOM, placement |
+| [`docs/images`](docs/images) | Renders |
 
-The fabrication files were generated with EasyEDA Pro. The EasyEDA source project is not stored in this repository.
+The EasyEDA Pro project `LMP91000 AFE` is not stored here.
 
-## References
+## Sources
 
 - [LMP91000 datasheet](https://www.ti.com/lit/ds/symlink/lmp91000.pdf)
 - [ADS1115 datasheet](https://www.ti.com/lit/ds/symlink/ads1115.pdf)
