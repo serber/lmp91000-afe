@@ -16,16 +16,16 @@ Parts fitted on the board, grouped by part type. Generated from `bom-v1.0.csv`, 
 
 | Refs | Qty | Value | Part | Manufacturer | Package | LCSC |
 |---|---|---|---|---|---|---|
-| C1, C3, C4, C5, C6 | 5 | 100nF | `CC0603KRX7R9BB104` | YAGEO | C0603 | [C14663](https://www.lcsc.com/product-detail/C14663.html) |
+| C1, C3, C4, C5, C6 | 5 | 100nF | `CL10B104KB8NNNC` | SAMSUNG | C0603 | [C1591](https://www.lcsc.com/product-detail/C1591.html) |
 | C2 | 1 | 10uF | `CL21A106KAYNNNE` | SAMSUNG | C0805 | [C15850](https://www.lcsc.com/product-detail/C15850.html) |
 
 ## Resistors
 
 | Refs | Qty | Value | Part | Manufacturer | Package | LCSC |
 |---|---|---|---|---|---|---|
-| R1 | 1 | 1.5kΩ | `0603WAF1501T5E` | UNI-ROYAL | R0603 | [C22843](https://www.lcsc.com/product-detail/C22843.html) |
-| R3, R4, R5, R7 | 4 | 10kΩ | `0603WAF1002T5E` | UNI-ROYAL | R0603 | [C25804](https://www.lcsc.com/product-detail/C25804.html) |
-| R6 | 1 | 1kΩ | `0603WAF1001T5E` | UNI-ROYAL | R0603 | [C21190](https://www.lcsc.com/product-detail/C21190.html) |
+| R1 | 1 | 1.5kΩ | `RC0603FR-071K5L` | YAGEO | R0603 | [C114668](https://www.lcsc.com/product-detail/C114668.html) |
+| R3, R4, R5, R7 | 4 | 10kΩ | `RC0603FR-0710KL` | YAGEO | R0603 | [C98220](https://www.lcsc.com/product-detail/C98220.html) |
+| R6 | 1 | 1kΩ | `RC0603FR-071KL` | YAGEO | R0603 | [C22548](https://www.lcsc.com/product-detail/C22548.html) |
 
 ## Connectors and mechanics
 
