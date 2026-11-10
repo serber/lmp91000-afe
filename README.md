@@ -98,12 +98,12 @@ The sensor pin layout is printed on the silkscreen. The WE and RE traces also ru
 Upload [`release/v1.0/gerber-v1.0.zip`](release/v1.0) and send:
 
 ```text
-5PCS, 2 LAYERS, FR4, 1.6MM, 1OZ, 44.7x27MM, Purple Soldermask, White Legend, ENIG, order number will be added.
+5PCS, 2 LAYERS, FR4, 1.6MM, 1OZ, Purple Soldermask, White Legend, Lead-free HASL, order number will be added.
 ```
 
 | Item | Value |
 |---|---|
-| Surface finish | ENIG: U1 (WSON-14, exposed pad) and U3 (MSOP-10) have 0.5 mm pitch. Lead-free HASL works with more risk of bridges |
+| Surface finish | Lead-free HASL to keep the cost down. U1 (WSON-14, exposed pad) and U3 (MSOP-10) have 0.5 mm pitch: solder with a bottom preheater and hot air, check for bridges. ENIG is an option at extra cost |
 | Smallest track | 0.2 mm |
 | Plated holes | 0.3, 1.1, 1.2 and 2.6 mm |
 | Non-plated holes | 4 × 2.2 mm |
